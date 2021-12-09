@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Install and build
-        run: yarn add && yarn run build
+        run: yarn Install && yarn run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.1
