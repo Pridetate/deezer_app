@@ -14,29 +14,33 @@ function App() {
           <Header />
         </Grid>
       </Grid>
-      <Grid container spacing={2} mt={1}>
-        <Grid item xs={1}></Grid>
-        <Grid item xs={2}></Grid>
-        <Grid item xs={6}>
-          <Search />
+      <div
+        style={{
+          width: '80%',
+          marginLeft: '10%',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Grid container spacing={2} mt={1}>
+          <Grid item xs={8} md={8}>
+            <Search />
+          </Grid>
+          <Grid item xs={2} md={8}></Grid>
+          <Grid item xs={1}></Grid>
         </Grid>
-        <Grid item xs={2}></Grid>
-        <Grid item xs={1}></Grid>
-      </Grid>
-
-      {artist && artist.length > 0
-        ? artist.slice(0, 5).map((item) => {
-            return (
-              <Grid container spacing={2} mt={1}>
-                <Grid item xs={1} md={0}></Grid>
-                <Grid item xs={10} md={2}>
-                  <CardTemplate item={item} />
-                </Grid>
-                <Grid item xs={1} md={0}></Grid>
-              </Grid>
-            );
-          })
-        : null}
+        <Grid container spacing={2} mt={1}>
+          {artist && artist.length > 0
+            ? artist.slice(0, 5).map((item) => {
+                return (
+                  <Grid item xs={12} md={2}>
+                    <CardTemplate item={item} />
+                  </Grid>
+                );
+              })
+            : null}
+        </Grid>
+      </div>
     </artistContext.Provider>
   );
 }

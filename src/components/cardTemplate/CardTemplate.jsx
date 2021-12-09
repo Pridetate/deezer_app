@@ -21,7 +21,6 @@ const CardTemplate = ({ item }) => {
         sx={{ maxWidth: 345 }}
         onClick={() => {
           setOpenDetails(true);
-          alert('opening');
         }}
       >
         {item ? (
@@ -43,7 +42,16 @@ const CardTemplate = ({ item }) => {
                 <Typography gutterBottom variant='h5' component='div'>
                   Artist
                 </Typography>
-                <Typography variant='body2' color='text.secondary'>
+                <Typography
+                  variant='body2'
+                  color='text.secondary'
+                  style={{
+                    width: '200px',
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                  }}
+                >
                   {item.artist.name}
                 </Typography>
               </Box>

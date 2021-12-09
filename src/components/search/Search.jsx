@@ -35,16 +35,20 @@ const Search = () => {
     <div>
       <TextField
         id='filled-search'
-        label='Search field'
+        label='Search artist'
         type='search'
         variant='outlined'
+        placeholder='type artist and click search icon'
         value={searchText}
         onChange={handleTextChange}
         fullWidth
         InputProps={{
           startAdornment: (
             <InputAdornment position='start'>
-              <SearchIcon onClick={handleSearch} />
+              <SearchIcon
+                style={{ cursor: 'pointer' }}
+                onClick={handleSearch}
+              />
             </InputAdornment>
           ),
         }}

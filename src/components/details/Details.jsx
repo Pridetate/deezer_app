@@ -6,7 +6,6 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
 import { makeStyles } from '@mui/styles';
 import Grid from '@mui/material/Grid';
@@ -82,17 +81,33 @@ const Details = ({ open, onClose, data }) => {
       aria-describedby='modal-modal-description'
       classes={{ paper: classes.dialogPaper }}
     >
-      <DialogTitle>Artist Details</DialogTitle>
-      <div style={{ width: '80%', marginLeft: '10%' }}>
-        <Grid container spacing={2}>
-          <Grid item xs={2}></Grid>
-          <Grid item xs={6}>
+      {' '}
+      <Grid container spacing={2}>
+        <Grid item xs={4}></Grid>
+        <Grid item xs={4}>
+          <div style={{ justifyContent: 'center', alignItems: 'center' }}>
+            <Typography style={{ color: 'black', fontSize: 25 }}>
+              Artist Details
+            </Typography>
+          </div>
+        </Grid>
+        <Grid item xs={4}></Grid>
+      </Grid>
+      <div style={{ width: '80%', marginLeft: '10%', marginBottom: 20 }}>
+        <Grid container spacing={2} mt={2}>
+          <Grid item xs={8} md={8}>
+            <Typography
+              gutterBottom
+              variant='h6'
+              component='div'
+              style={{ color: 'blue', fontSize: 'bold' }}
+            ></Typography>
             <Card sx={{ maxWidth: 345 }}>
               {data ? (
                 <CardActionArea>
                   <CardMedia
                     component='img'
-                    height='140'
+                    height='180'
                     image={data.artist.picture}
                     alt='green iguana'
                   />
@@ -102,6 +117,14 @@ const Details = ({ open, onClose, data }) => {
             </Card>
           </Grid>
           <Grid item xs={4}>
+            <Typography
+              gutterBottom
+              variant='h6'
+              component='div'
+              style={{ color: 'blue', fontSize: 'bold' }}
+            >
+              Top Tracks
+            </Typography>
             {tracklist &&
               tracklist.map((track, index) => {
                 return (
@@ -120,14 +143,12 @@ const Details = ({ open, onClose, data }) => {
                         flexDirection: 'row',
                       }}
                     >
-                      <Typography gutterBottom variant='h5' component='div'>
+                      <Typography gutterBottom variant='h6' component='div'>
                         {index + 1}.
                       </Typography>
-                      <Typography variant='h5' color='text.secondary'>
-                        {track.title}
-                      </Typography>
+                      <Typography variant='h6'>{track.title}</Typography>
                     </Box>
-                    <Typography variant='h5' color='text.secondary'>
+                    <Typography variant='h6' color='text.secondary'>
                       {track.duration}
                     </Typography>
                   </Box>
@@ -135,20 +156,18 @@ const Details = ({ open, onClose, data }) => {
               })}
           </Grid>
           <Grid container spacing={2}>
-            <Grid item xs={1}></Grid>
-            <Grid item xs={10}>
-              <Typography>Albums</Typography>
+            <Grid item xs={12}>
+              <Typography style={{ color: 'blue', fontSize: 20 }}>
+                Albums
+              </Typography>
             </Grid>
-            <Grid item xs={1}></Grid>
           </Grid>
           <Grid container spacing={2}>
-            <Grid item xs={1}></Grid>
-
             {tracklist &&
               tracklist.map((track, index) => {
                 return (
-                  <Grid key={track.id} item xs={2}>
-                    <Card sx={{ maxWidth: 345 }}>
+                  <Grid key={track.id} item xs={12} md={2}>
+                    <Card sx={{ maxWidth: 400 }}>
                       <CardActionArea>
                         <CardMedia
                           component='img'
@@ -160,8 +179,14 @@ const Details = ({ open, onClose, data }) => {
                           <Box>
                             <Typography
                               gutterBottom
-                              variant='h5'
+                              variant='h6'
                               component='div'
+                              style={{
+                                width: '200px',
+                                whiteSpace: 'nowrap',
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                              }}
                             >
                               {track.album.title}
                             </Typography>
@@ -177,12 +202,12 @@ const Details = ({ open, onClose, data }) => {
                   </Grid>
                 );
               })}
-            <Grid item xs={1}></Grid>
           </Grid>
         </Grid>
       </div>
-
-      <Button onClick={onClose}>Close</Button>
+      <Button onClick={onClose} style={{ color: 'blue', fontSize: 25 }} mt={5}>
+        Close
+      </Button>
     </Dialog>
   );
 };
