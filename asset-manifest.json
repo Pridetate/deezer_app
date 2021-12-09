@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/deezer_app/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/deezer_app/static/js/main.75c39477.chunk.js",
-    "main.js.map": "/deezer_app/static/js/main.75c39477.chunk.js.map",
+    "main.js": "/deezer_app/static/js/main.868fadb4.chunk.js",
+    "main.js.map": "/deezer_app/static/js/main.868fadb4.chunk.js.map",
     "runtime-main.js": "/deezer_app/static/js/runtime-main.39b0bcb1.js",
     "runtime-main.js.map": "/deezer_app/static/js/runtime-main.39b0bcb1.js.map",
     "static/js/2.ab81a6f4.chunk.js": "/deezer_app/static/js/2.ab81a6f4.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.39b0bcb1.js",
     "static/js/2.ab81a6f4.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.75c39477.chunk.js"
+    "static/js/main.868fadb4.chunk.js"
   ]
 }
