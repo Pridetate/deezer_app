@@ -18,7 +18,7 @@ const CardTemplate = ({ item }) => {
   return (
     <>
       <Card
-        sx={{ maxWidth: 345 }}
+        sx={{ maxWidth: 345 ,}}
         onClick={() => {
           setOpenDetails(true);
         }}
@@ -46,7 +46,7 @@ const CardTemplate = ({ item }) => {
                   variant='body2'
                   color='text.secondary'
                   style={{
-                    width: '200px',
+                    marginLeft:15,
                     whiteSpace: 'nowrap',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
