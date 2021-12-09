@@ -15,7 +15,7 @@ const Header = () => {
             component='div'
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            Deeze
+            Deezer
           </Typography>
         </Toolbar>
       </Container>
