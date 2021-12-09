@@ -3,15 +3,18 @@ import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import { InputAdornment } from '@mui/material';
 import { artistContext } from '../../context/Context';
+import LoadingSpinner from '../../spinner/LoadingSpinner'
 
 const Search = () => {
   const [searchText, setSearchText] = useState('');
+  const [loading,setLoading] = useState(false)
 
   const { setArtist } = useContext(artistContext);
   const handleTextChange = (event) => {
     setSearchText(event.target.value);
   };
   const handleSearch = async () => {
+    setLoading(true)
     try {
       const response = fetch(
         'https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=' +
@@ -26,7 +29,9 @@ const Search = () => {
       );
       const result = await (await response).json();
       setArtist(result.data);
+      setLoading(false)
     } catch (err) {
+      setLoading(false)
       console.log(err);
     }
   };
@@ -53,6 +58,11 @@ const Search = () => {
           ),
         }}
       />
+      {
+        loading?( 
+          <LoadingSpinner />
+        ):null
+      }
     </div>
   );
 };
